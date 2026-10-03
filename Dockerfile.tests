@@ -1,0 +1,10 @@
+# Test runner image: official Playwright image (browsers + OS deps preinstalled).
+# Keep the tag in sync with playwright==1.56.0 in requirements-dev.txt
+FROM mcr.microsoft.com/playwright/python:v1.56.0-noble
+
+WORKDIR /work
+COPY requirements-dev.txt requirements.txt ./
+RUN pip install --no-cache-dir -r requirements-dev.txt
+
+COPY . .
+CMD ["pytest"]

@@ -1,0 +1,21 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      # Test-only reset endpoint. NEVER enable this in a deployed environment.
+      GRIDWATCH_ENABLE_RESET: "1"
+
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.tests
+    depends_on:
+      app:
+        condition: service_healthy
+    environment:
+      BASE_URL: http://app:8000
+    volumes:
+      - ./reports:/work/reports
+      - ./test-results:/work/test-results

@@ -1,0 +1,7 @@
+# Render Blueprint: deploys the app (not the tests) from the root Dockerfile on the free plan.
+services:
+  - type: web
+    name: gridwatch-qa
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
