@@ -25,32 +25,6 @@ The app is deliberately small. The quality engineering around it is the point:
 
 42 automated test cases (34 test functions, expanded by parametrisation). Traceability: 31/31 scenarios automated.
 
-## Run it
-
-**Prerequisites:** Python 3.12, and Docker (optional).
-
-```bash
-git clone https://github.com/Sam-resh/gridwatch-qa.git && cd gridwatch-qa
-python -m venv .venv && source .venv/bin/activate        # Windows: .venv\Scripts\activate
-pip install -r requirements-dev.txt
-playwright install --with-deps chromium
-
-pytest                       # everything (starts the app automatically)
-pytest -m api                # API tests only
-pytest -m e2e --headed       # watch the browser tests
-```
-
-Run the app yourself: `GRIDWATCH_ENABLE_RESET=1 uvicorn app.main:app --reload` then open http://127.0.0.1:8000
-(API docs at `/docs`).
-
-**Everything in Docker (app + tests, no local setup):**
-
-```bash
-docker compose up --build --abort-on-container-exit --exit-code-from tests
-```
-
-Reports land in `reports/report.html`; failure traces, screenshots and videos in `test-results/`
-(`playwright show-trace test-results/<test>/trace.zip`).
 
 ## What the app does
 
