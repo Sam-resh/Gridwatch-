@@ -64,10 +64,6 @@ AI assistants drafted the first version of tests from the Given/When/Then specs.
 each test was reviewed, run, and mutation-checked before it was committed. [`docs/AI_REVIEW_LOG.md`](docs/AI_REVIEW_LOG.md)
 records what the AI got wrong. I kept full ownership of what is committed.
 
-## Deploy
-
-- **Render:** New > Blueprint > select this repo (uses `render.yaml` and the root `Dockerfile`; free plan).
-- Do **not** set `GRIDWATCH_ENABLE_RESET` on a deployed instance.
 
 ## CI
 
